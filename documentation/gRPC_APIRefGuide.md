@@ -24,20 +24,17 @@ usage: get_model_status.py [-h] [--grpc_address GRPC_ADDRESS]
                            [--grpc_port GRPC_PORT] [--model_name MODEL_NAME]
                            [--model_version MODEL_VERSION]
 
-Get information about the status of served models
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --grpc_address GRPC_ADDRESS
-                        Specify url to grpc service. default:localhost
-  --grpc_port GRPC_PORT
-                        Specify port to grpc service. default: 9000
-  --model_name MODEL_NAME
-                        Model name to query. default: resnet
-  --model_version MODEL_VERSION
-                        Model version to query. Lists all versions if not
-                        specified
 ```
+
+- Optional Arguments
+
+| Argument      | Description |
+| :---        |    :----   |
+| -h, --help       | Show help message and exit       |
+| --grpc_address GRPC_ADDRESS   |   Specify url to grpc service. Default:localhost      |
+| --grpc_port GRPC_PORT | Specify port to grpc service. Default: 9000 |
+| --model_name MODEL_NAME | Model name to query. Default: resnet | 
+| --model_version MODEL_VERSION | Model version to query. Lists all versions if not specified |
 
 - Sample Response
 
@@ -85,20 +82,18 @@ usage: get_serving_meta.py [-h] [--grpc_address GRPC_ADDRESS]
                            [--grpc_port GRPC_PORT] [--model_name MODEL_NAME]
                            [--model_version MODEL_VERSION]
 
-Get information about served models
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --grpc_address GRPC_ADDRESS
-                        Specify url to grpc service. default:localhost
-  --grpc_port GRPC_PORT
-                        Specify port to grpc service. default: 9000
-  --model_name MODEL_NAME
-                        Define model name, must be same as is in service.
-                        default: resnet
-  --model_version MODEL_VERSION
-                        Define model version - must be numerical
 ```
+
+- Optional Arguments
+
+| Argument      | Description |
+| :---        |    :----   |
+| -h, --help       | Show this help message and exit       |
+| --grpc_address GRPC_ADDRESS   |   Specify url to grpc service. Default:localhost      |
+| --grpc_port GRPC_PORT | Specify port to grpc service. Default: 9000 |
+| --model_name MODEL_NAME | Define model name, must be same as is in service. Default: resnet | 
+| --model_version MODEL_VERSION | Define model version - must be numerical |
+
 
 - Sample Response
 
@@ -128,6 +123,7 @@ Outputs metadata:
 
 Sends requests via TFS gRPC API using images in numpy format. It displays performance statistics and optionally the model accuracy.
 
+
 > **Note:** [predict function spec](https://github.com/tensorflow/serving/blob/r1.14/tensorflow_serving/apis/predict.proto) has two message definitions: *PredictRequest* and  *PredictResponse*.  
 > * *PredictRequest* specifies information about the model spec, a map of input data serialized via 
 [TensorProto](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/framework/tensor.proto) to a string format.
@@ -149,42 +145,24 @@ usage: grpc_serving_client.py [-h] --images_numpy_path IMAGES_NUMPY_PATH
                               [--iterations ITERATIONS]
                               [--batchsize BATCHSIZE]
                               [--model_name MODEL_NAME]
-
-Sends requests via TFS gRPC API using images in numpy format. It displays
-performance statistics and optionally the model accuracy
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --images_numpy_path IMAGES_NUMPY_PATH
-                        numpy in shape [n,w,h,c] or [n,c,h,w]
-  --labels_numpy_path LABELS_NUMPY_PATH
-                        numpy in shape [n,1] - can be used to check model
-                        accuracy
-  --grpc_address GRPC_ADDRESS
-                        Specify url to grpc service. default:localhost
-  --grpc_port GRPC_PORT
-                        Specify port to grpc service. default: 9000
-  --input_name INPUT_NAME
-                        Specify input tensor name. default: input
-  --output_name OUTPUT_NAME
-                        Specify output name. default:
-                        resnet_v1_50/predictions/Reshape_1
-  --transpose_input {False,True}
-                        Set to False to skip NHWC>NCHW or NCHW>NHWC input
-                        transposing. default: True
-  --transpose_method {nchw2nhwc,nhwc2nchw}
-                        How the input transposition should be executed:
-                        nhwc2nchw or nchw2nhwc
-  --iterations ITERATIONS
-                        Number of requests iterations, as default use number
-                        of images in numpy memmap. default: 0 (consume all
-                        frames)
-  --batchsize BATCHSIZE
-                        Number of images in a single request. default: 1
-  --model_name MODEL_NAME
-                        Define model name, must be same as is in service.
-                        default: resnet
 ```
+
+- Optional Arguments
+
+| Argument      | Description |
+| :---        |    :----   |
+| -h,--help       | Show help message and exit       |
+| --images_numpy_path   |   Numpy in shape [n,w,h,c] or [n,c,h,w]      |
+| --labels_numpy_path | Numpy in shape [n,1] - can be used to check model accuracy |
+| --grpc_address GRPC_ADDRESS | Specify url to grpc service. Default:localhost | 
+| --grpc_port GRPC_PORT | Specify port to grpc service. Default: 9000 |
+| --input_name | Specify input tensor name. Default: input |
+| --output_name | Specify output name. Default: resnet_v1_50/predictions/Reshape_1 |
+| --transpose_input| {False,True} Set to False to skip NHWC>NCHW or NCHW>NHWC input transposing. Default: True|
+| --transpose_method |{nchw2nhwc,nhwc2nchw} How the input transposition should be executed: nhwc2nchw or nhwc2nchw |
+| --iterations | Number of requests iterations, as default use number of images in numpy memmap. Default: 0 (consume all frames)|
+| --batchsize | Number of images in a single request. Default: 1 |
+| --model_name | Define model name, must be same as is in service. Default: resnet|
 
 - Sample Response
 
@@ -259,27 +237,23 @@ usage: jpeg_classification.py [-h] [--images_list IMAGES_LIST]
                               [--input_name INPUT_NAME]
                               [--output_name OUTPUT_NAME]
                               [--model_name MODEL_NAME] [--size SIZE]
-
-Do requests to ie_serving and tf_serving using images in numpy format
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --images_list IMAGES_LIST
-                        path to a file with a list of labeled images
-  --grpc_address GRPC_ADDRESS
-                        Specify url to grpc service. default:localhost
-  --grpc_port GRPC_PORT
-                        Specify port to grpc service. default: 9000
-  --input_name INPUT_NAME
-                        Specify input tensor name. default: input
-  --output_name OUTPUT_NAME
-                        Specify output name. default:
-                        resnet_v1_50/predictions/Reshape_1
-  --model_name MODEL_NAME
-                        Define model name, must be same as is in service.
-                        default: resnet
-  --size SIZE           The size of the image in the model
 ```
+
+- Optional Argument
+
+| Argument      | Description |
+| :---        |    :----   |
+| -h, --help       | Show help message and exit       |
+| --images_list   |   Path to a file with a list of labeled images      |
+| --grpc_address GRPC_ADDRESS | Specify url to grpc service. Default:localhost | 
+| --grpc_port GRPC_PORT | Specify port to grpc service. Default: 9000 |
+| --input_name | Specify input tensor name. Default: input |
+| --output_name | Specify output name. Default: resnet_v1_50/predictions/Reshape_1 |
+| --model_name | Define model name, must be same as is in service. Default: resnet|
+| --size SIZE  | The size of the image in the model|
+
+
+
 - Sample Response
 
 ```bash
@@ -328,6 +302,67 @@ Detected: 340  Should be: 340
 
 Overall accuracy= 90.0
 ```
+## Multiple input example for HDDL
+
+- Description
+
+The purpose of this example is to show how to send inputs from multiple sources(cameras, video files) to a model served from
+inside the OpenVINO model server(inside docker)
+
+- Pre-requisite
+
+To run this example you will need to run the OpenVINO hddldaemon and OpenVINO model server separately. Below are the steps
+to install and run them (provided for Linux OS):
+ 1. Setup [OpenVINO](https://docs.openvinotoolkit.org/2019_R2/_docs_install_guides_installing_openvino_linux.html) & [HDDL](https://docs.openvinotoolkit.org/2019_R2/_docs_install_guides_installing_openvino_linux_ivad_vpu.html):
+
+ 2. Setup [OVMS](https://github.com/IntelAI/OpenVINO-model-server/blob/master/docs/docker_container.md#starting-docker-container-with-hddl)  to use HDDL:
+
+
+- Command
+```bash
+python multi_inputs.py --help
+```
+
+- Optional Arguments
+
+| Argument      | Description |
+| :---        |    :----   |
+| -h,--help       | Show help message and exit       |
+| -n NETWORK_NAME, --network_name NETWORK_NAME   |   Network name      |
+| -l INPUT_LAYER, --input_layer INPUT_LAYER | Input layer name |
+| -o OUTPUT_LAYER, --output_layer OUTPUT_LAYER | Output layer name | 
+| -d INPUT_DIMENSION, --input_dimension INPUT_DIMENSION | Input image dimension |
+| -c NUM_CAMERAS, --num_cameras NUM_CAMERAS | Number of cameras to be used |
+| -f FILE, --file FILE | Path to the video file |
+| -i IP, --ip IP| IP address of the ovms|
+| -p PORT, --port PORT | Port of the ovms |
+
+- Sample Response
+
+```bash
+==============
+TERMINAL 1: <openvino_installation_root>/openvino/inference_engine/external/hddl/bin/hddldaemon
+TERMINAL 2: docker run --rm -it --privileged --device /dev/ion:/dev/ion -v /var/tmp:/var/tmp -v /opt/ml:/opt/ml -e DEVICE=HDDL
+            -e FILE_SYSTEM_POLL_WAIT_SECONDS=0 -p 8001:8001 -p 9001:9001 ie-serving-py:latest /ie-serving-py/start_server.sh
+            ie_serving model --model_path /opt/ml/model5 --model_name SSDMobileNet --port 9001 --rest_port 8001
+TERMINAL 3: python3.6 multi_inputs.py -n SSDMobileNet -l image_tensor -o DetectionOutput -d 300 -c 1
+            -f /var/repos/github/sample-videos/face-demographics-walking.mp4 -i 127.0.0.1 -p 9001
+
+Console logs:
+============
+[$(levelname)s ] Video1 fps: 7, Inf fps: 7, dropped fps: 0
+[$(levelname)s ] Camera0 fps: 7, Inf fps: 7, dropped fps: 0
+[$(levelname)s ] Video1 fps: 7, Inf fps: 7, dropped fps: 0
+[$(levelname)s ] Camera0 fps: 7, Inf fps: 7, dropped fps: 0
+[$(levelname)s ] Video1 fps: 7, Inf fps: 7, dropped fps: 0
+[$(levelname)s ] Camera0 fps: 8, Inf fps: 8, dropped fps: 0
+[$(levelname)s ] Exiting thread 0
+[$(levelname)s ] Good Bye!
+
+```
+> **NOTE:** You should also be seeing the GUI showing the video frame and bounding boxes drawn with the detected class name
+
+
 
 ## References
 
