@@ -14,16 +14,17 @@ OpenVINO™ Model Server is a scalable, high-performance solution for serving ma
 ### Model Server Components:
 OpenVINO™ Model Server includes the following components:
 
-1. Deep Learning Inference Engine - (Details)
+1. Deep Learning Inference Engine
 2. OpenCV 
+3. Inference Engine Serving Component
 
 ### Documentation Set Contents
 OpenVINO™ Model Server documentation set includes the following documents:
 
-1. Install the OpenVINO™ Model Server on Linux using Docker
-2. Install the  OpenVINO™ Model Server on Bare Metal Hosts and Virtual Machines
-3. OpenVINO™ Model Server gRPC Reference Guide
-4. OpenVINO™ Model Server REST API Reference Guide
+1. [Install the OpenVINO™ Model Server on Linux using Docker](./Installations_Linux_Docker.md)
+2. [Install the  OpenVINO™ Model Server on Bare Metal Hosts and Virtual Machines](./\ModelServerVMInstallation.md)
+3. [OpenVINO™ Model Server gRPC Reference Guide](./gRPC_APIRefGuide.md)
+4. [OpenVINO™ Model Server REST API Reference Guide](./ModelServerRESTAPI.md)
 
 
 
