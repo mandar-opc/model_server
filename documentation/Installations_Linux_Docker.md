@@ -87,7 +87,7 @@ docker run -d -v $(pwd)/model:/models/${MODEL_NAME}/${VERSION_NUMBER} -e LOG_LEV
 
 - Publish the container's port to your host's **open ports**
 - In above command port 9000 is exposed for gRPC and port 9001 is exposed for REST API calls.
-- For preparing and saving models to serve with OpenVINO&trade; Model Server refer [this](link)
+- For preparing and saving models to serve with OpenVINO&trade; Model Server refer [this](./Installations_Preparing_Model)
 - Add a name to your model for the client gRPC/REST API calls.
 
 ### Other Arguments
