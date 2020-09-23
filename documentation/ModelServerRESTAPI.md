@@ -1,11 +1,11 @@
 # OpenVINO™ Model Server RESTful API Documentation
 
 ## Introduction
-In addition with [gRPC APIs](https://github.com/mandar-opc/model_server/blob/OpenVINOModelServer-Documentation/documentation/gRPC_APIRefGuide.md) OpenVino model server also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
+In addition with [gRPC APIs](link) OpenVINO™ model server also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
 
-The request and response is a JSON object.
+## Model Status API
+* Description
 
-## Model Status API 
 Get information about the status of served models
 
 * URL 
@@ -51,6 +51,8 @@ $ curl http://localhost:8001/v1/models/person-detection/versions/1
 ```
 
 ## Model Metadata API
+* Description 
+
 Get the metadata of a model in the model server.
 
 * URL 
@@ -128,7 +130,9 @@ $ curl http://localhost:8001/v1/models/person-detection/versions/1/metadata
 }
 ```
 
-## Model predict function
+## Model Predict Function
+* Description
+
 Sends requests via TensorFlow Serving RESTful API using images in numpy format. It displays performance statistics and optionally the model accuracy.
 
 * Command
@@ -149,22 +153,22 @@ usage: rest_serving_client.py [-h] --images_numpy_path IMAGES_NUMPY_PATH
 ```
 * Optional Arguments
 
-| Arguement      | Description |
+| Argument      | Description |
 | :---        |    :----   |
-| help       | Show help message and exit       |
-| images_numpy_path   |   Numpy in shape [n,w,h,c] or [n,c,h,w]      |
-| labels_numpy_path | Numpy in shape [n,1] - can be used to check model accuracy |
-| rest_url | Specify url to REST API service. Default: http://localhost | 
-| rest_port | Specify port to REST API service. default: 5555 |
-| input_name | Specify input tensor name. default: input |
-| output_name | Specify output name. Default: resnet_v1_50/predictions/Reshape_1 |
-| transpose_input| {False,True} Set to False to skip NHWC>NCHW or NCHW>NHWC input transposing. Default: True|
-| transpose_method |{nchw2nhwc,nhwc2nchw} How the input transposition should be executed: nhwc2nchw or nhwc2nchw |
-| iterations | Number of requests iterations, as default use number of images in numpy memmap. Default: 0 (consume all frames)|
-| batchsize | Number of images in a single request. default: 1 |
-| model_name | Define model name, must be same as is in service. Default: resnet|
-| request_format | {row_noname,row_name,column_noname,column_name} Request format according to TF Serving API:row_noname,row_name,column_noname,column_name|
-|model_version | Model version to be used. Default: LATEST |
+| -h, --help       | Show help message and exit       |
+| --images_numpy_path IMAGES_NUMPY_PATH |   Numpy in shape [n,w,h,c] or [n,c,h,w]      |
+| --labels_numpy_path LABELS_NUMPY_PATH| Numpy in shape [n,1] - can be used to check model accuracy |
+| --rest_url REST_URL| Specify url to REST API service. Default: http://localhost | 
+| --rest_port REST_PORT| Specify port to REST API service. Default: 5555 |
+| --input_name INPUT_NAME| Specify input tensor name. Default: input |
+| --output_name OUTPUT_NAME| Specify output name. Default: resnet_v1_50/predictions/Reshape_1 |
+| --transpose_input {False,True}| Set to False to skip NHWC>NCHW or NCHW>NHWC input transposing. Default: True|
+| --transpose_method {nchw2nhwc,nhwc2nchw} | How the input transposition should be executed: nhwc2nchw or nhwc2nchw |
+| --iterations ITERATIONS| Number of requests iterations, as default use number of images in numpy memmap. Default: 0 (consume all frames)|
+| --batchsize BATCHSIZE| Number of images in a single request. Default: 1 |
+| --model_name MODEL_NAME| Define model name, must be same as is in service. Default: resnet|
+| --request_format {row_noname,row_name,column_noname,column_name}| Request format according to TF Serving API:row_noname,row_name,column_noname,column_name|
+| --model_version MODEL_VERSION| Model version to be used. Default: LATEST |
 
 
 * Sample Response
