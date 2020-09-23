@@ -18,7 +18,7 @@ GET http://${REST_URL}:${REST_PORT}/v1/models/${MODEL_NAME}/versions/${MODEL_VER
 * Response format
 
 If successful, returns a JSON of following format
-```json
+```Bash
 {
   'model_version_status':[
     {
