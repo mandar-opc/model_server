@@ -158,8 +158,8 @@ usage: grpc_serving_client.py [-h] --images_numpy_path IMAGES_NUMPY_PATH
 | --grpc_port GRPC_PORT | Specify port to grpc service. Default: 9000 |
 | --input_name | Specify input tensor name. Default: input |
 | --output_name | Specify output name. Default: resnet_v1_50/predictions/Reshape_1 |
-| --transpose_input| {False,True}. Set to False to skip NHWC>NCHW or NCHW>NHWC input transposing. Default: True|
-| --transpose_method |{nchw2nhwc,nhwc2nchw}. How the input transposition should be executed: nhwc2nchw or nhwc2nchw |
+| --transpose_input {False,True}|  Set to False to skip NHWC>NCHW or NCHW>NHWC input transposing. Default: True|
+| --transpose_method {nchw2nhwc,nhwc2nchw} | How the input transposition should be executed: nhwc2nchw or nhwc2nchw |
 | --iterations | Number of requests iterations, as default use number of images in numpy memmap. Default: 0 (consume all frames)|
 | --batchsize | Number of images in a single request. Default: 1 |
 | --model_name | Define model name, must be same as is in service. Default: resnet|
