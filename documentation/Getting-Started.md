@@ -22,7 +22,7 @@ OpenVINO™ Model Server includes the following components:
 OpenVINO™ Model Server documentation set includes the following documents:
 
 1. [Install the OpenVINO™ Model Server on Linux using Docker](./Installations_Linux_Docker.md)
-2. [Install the  OpenVINO™ Model Server on Bare Metal Hosts and Virtual Machines](./\ModelServerVMInstallation.md)
+2. [Install the  OpenVINO™ Model Server on Bare Metal Hosts and Virtual Machines](./ModelServerVMInstallation.md)
 3. [OpenVINO™ Model Server gRPC Reference Guide](./gRPC_APIRefGuide.md)
 4. [OpenVINO™ Model Server REST API Reference Guide](./ModelServerRESTAPI.md)
 
