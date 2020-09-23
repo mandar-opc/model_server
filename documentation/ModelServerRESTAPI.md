@@ -1,7 +1,7 @@
 # OpenVINO™ Model Server RESTful API Documentation
 
 ## Introduction
-In addition with [gRPC APIs](link) OpenVino model server also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
+In addition with [gRPC APIs](https://github.com/mandar-opc/model_server/blob/OpenVINOModelServer-Documentation/documentation/gRPC_APIRefGuide.md) OpenVino model server also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
 
 The request and response is a JSON object.
 
