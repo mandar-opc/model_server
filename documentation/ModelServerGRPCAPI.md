@@ -2,13 +2,20 @@
 
 ## Introduction 
 This documents gives information about OpenVINO&trade; Model Server gRPC API. It is documented in the proto buffer files in [tensorflow_serving_api](https://github.com/tensorflow/serving/tree/r1.14/tensorflow_serving/apis). 
-
 Using the gRPC interface is recommended for optimal performance due to its faster implementation of input data deserialization. gRPC achieves lower latency, especially with larger input messages like images. 
+
+This document covers following API:
+* <a href="#model-status">Model Status API</a>
+* <a href="#model-metadata">Model MetaData API </a>
+* <a href="#predict">Predict API </a>
+
 
 > **Note:** The implementations for *Predict*, *GetModelMetadata* and *GetModelStatus* function calls are currently available. 
 These are the most generic function calls and should address most of the usage scenarios.
 
-## Model Status API 
+
+
+## Model Status API <a name="model-status"></a>
 
 - Description
 
@@ -66,7 +73,7 @@ Error message:
 ```
 
 
-## Model MetaData API 
+## Model MetaData API <a name="model-metadata"></a>
 
 - Description
 
@@ -117,7 +124,7 @@ Outputs metadata:
 	Output name: prob; shape: [1, 1000]; dtype: DT_FLOAT
 ```
 
-## Predict API 
+## Predict API <a name="predict"></a>
 
 - Description
 
@@ -364,7 +371,7 @@ Console logs:
 
 
 
-## References
+## See Also
 
 - [Example client code](https://github.com/openvinotoolkit/model_server/tree/master/example_client) shows how to use these API and submit the requests using the gRPC interface.
 - [TensorFlow Serving](https://github.com/tensorflow/serving)
