@@ -1,7 +1,7 @@
 # OpenVINO™ Model Server RESTful API Documentation
 
 ## Introduction
-In addition with [gRPC APIs](link) OpenVINO™ model server also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
+In addition with [gRPC APIs](./ModelServerGRPCAPI.md) OpenVINO™ model server also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
 
 ## Model Status API
 * Description
