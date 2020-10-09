@@ -61,8 +61,7 @@ $ helm install ovms ovms --set model_name=icnet-camvid-ava-0001,model_path=s3://
     
 ## Deploy the Model Server Image
 
-Deploy Model Server using _helm_. Please include the required model name and model path. You can also adjust other parameters defined in [values.yaml](ovms/values.yaml) (---change link when deployed---)
-```shell script
+Deploy Model Server using _helm_. Please include the required model name and model path. You can also adjust other parameters defined in [values.yaml](../deploy/ovms/values.yaml)
 $ helm install ovms ovms --set model_name=resnet50-binary-0001,model_path=gs://models-repository
 ```
 
