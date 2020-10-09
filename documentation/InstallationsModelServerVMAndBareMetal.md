@@ -44,10 +44,9 @@ This guide provides step-by-step instructions to install OpenVino&trade; Model S
    ````
    The `URL` above represents a link to the OpenVINO Toolkit package that you can get after  registration on [OpenVINO™ Toolkit website](https://software.intel.com/en-us/openvino-toolkit/choose-download). The binary package will be located in the docker image `openvino/model_server-build:latest` in the folder `./dist`.
 
-4. Following command will also make a copy of the binary packages in the folder dist from the docker image `openvino/model_server-build:latest` built in previous step in the repository directory:
-   ```Bash
-   make docker_build target
-    ```
+4. The `make docker_build` target will also make a copy of the   
+   binary package in a dist subfolder in the model server root directory.
+
 5. Navigate to the folder containing binary package and unpack the included tar.gz file
    ```Bash
    cd dist/centos && tar -xzvf ovms.tar.gz
