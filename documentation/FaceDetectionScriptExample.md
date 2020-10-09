@@ -98,7 +98,7 @@ curl --create-dirs https://download.01.org/opencv/2020/openvinotoolkit/2020.2/op
 
 ### Prepare Model Repository
 
-Refer this link to place your downloaded or converted in a repository to mount it to the OpenVINO&trade; Model Server- [Preparation of Models](./PreparingModelRepository.md)
+Refer this link to place your downloaded or converted in a repository to mount it to the OpenVINO&trade; Model Server- [Preparation of Models](./PreparingModelsRepository.md)
 
 ### Run the OpenVINO&trade; Model Server Docker Container
 
