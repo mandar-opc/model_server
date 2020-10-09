@@ -9,8 +9,8 @@ OpenVINO™ Model Server is a scalable, high-performance solution for serving ma
 * Supports multi-worker configuration and parallel inference execution.
 * Supports model reshaping at runtime.
 * Speeds time-to-market as development of client code is reduced
-* Server can be deployed in a Kubernetes cluster allowing the inference service to scale horizontally and ensure high availability. [Kubernetes deployments](https://github.com/openvinotoolkit/model_server/tree/master/deploy)
-* The server supports reshaphing models in runtime - [Model Reshaping](./ShapeandBatchSize.md)
+* Server can be deployed in a Kubernetes cluster allowing the inference service to scale horizontally and ensure high availability. [Kubernetes deployments](../deploy)
+* The server supports reshaphing models in runtime - [Model Reshaping](./ShapeAndBatchSize.md)
 
 ### Model Server Components:
 OpenVINO™ Model Server includes the following components:
