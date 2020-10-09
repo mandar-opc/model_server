@@ -63,6 +63,6 @@ which can map the input and output keys to the appropriate tensors.
 tensor names.
 
 - OpenVINO&trade; model server enables the versions present in the configured model folder according to the defined
-[version policy](link).
+[version policy](./ModelVersionPolicy.md).
 
 - If the client does not specify the version number in parameters, by default the latest version is served
