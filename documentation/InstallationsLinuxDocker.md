@@ -527,8 +527,6 @@ ovms:latest --model_path /opt/model --model_name my_model --port 9001 --target_d
 `-v /var/tmp:/var/tmp` enables communication with _hddldaemon_ running on the
  host machine
 
-Check out our recommendations for [throughput optimization on HDDL](performance_tuning.md#hddl-accelerators)
-
 ## 7. Starting docker container with GPU<a name="gpu"></a>
 
 The GPU plugin uses the Intel® Compute Library for Deep Neural Networks (clDNN) to infer deep neural networks.
@@ -547,7 +545,7 @@ ie-serving-py:latest /ie-serving-py/start_server.sh ie_serving model --model_pat
 
 If you have multiple inference devices available (e.g. Myriad VPUs and CPU) you can increase inference throughput by enabling the Multi-Device Plugin. 
 With Multi-Device Plugin enabled, inference requests will be load balanced between multiple devices. 
-For more detailed information read [OpenVino's Multi-Device plugin documentation](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_MULTI.html}.
+For more detailed information read [OpenVino's Multi-Device plugin documentation](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_MULTI.html).
 
 In order to use this feature in OpenVino™ Model Server, following steps are required:
 
