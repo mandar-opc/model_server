@@ -4,7 +4,7 @@
 This page guides you through an example script to run face detection inference with OpenVINO&trade; Model Server.
 
 
-- The script [face_detection.py](face_detection.py) runs face detection inference requests for all the images
+- The script [face_detection.py](../example_client/face_detection.py) runs face detection inference requests for all the images
 saved in `image_input_dir` directory. 
 
 - The script can adjust the input image size and change the batch size in the request. It demonstrates how to use
