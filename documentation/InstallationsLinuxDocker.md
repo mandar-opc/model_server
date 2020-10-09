@@ -168,7 +168,7 @@ Usage:
 
 #### To know more about batch size and shape parameters refer [Batch Size and Shape document](./ShapeAndBatchSize.md)
 
-More details about starting container with one model and examples can be found [here](link to singlemodel)
+More details about starting container with one model and examples can be found <a href="#singlemodel">here</a>
 
 ## 2. Building the OpenVINO&trade; Model Server Image using Source Code<a name="sourcecode"></a>
 
