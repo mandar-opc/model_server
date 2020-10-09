@@ -1,4 +1,4 @@
-# Performance Information
+# OpenVINO&trade; Model Server Performance Information
 
 ## Introduction
 

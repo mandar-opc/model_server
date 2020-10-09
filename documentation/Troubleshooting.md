@@ -1,7 +1,7 @@
-# OpenVINO™ Model Server Troubleshooting
+# OpenVINO&trade; Model Server Troubleshooting
 
 ## Introduction
-This document gives information about troubleshooting following issues while using OpenVINO™ Model Server:
+This document gives information about troubleshooting following issues while using OpenVINO&trade; Model Server:
 * <a href="#model-import">Model Import Issues</a>
 * <a href="#client-request">Client Request Issues</a>
 * <a href="#resource-allocation">Resource Allocation</a>
@@ -44,7 +44,7 @@ models/
 
 - A model version that is detected but not loaded will not be served. It will report status `LOADING` with error message: `Error occurred while loading version`.
 
-- When model files become accessible or fixed, server will try to load them again in the next [version update](./ModelVersionPolicy.md) attempt.
+- When model files become accessible or fixed, server will try to load them again on the next [version update](./ModelVersionPolicy.md) attempt.
 
 - At startup, the server will enable gRPC and REST API endpoint, after all configured models and detected model versions are loaded successfully (in AVAILABLE state).
 

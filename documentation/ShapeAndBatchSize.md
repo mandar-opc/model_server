@@ -1,4 +1,4 @@
-## Batch Processing
+# Batch Processing in OpenVINO&trade; Model Server
 
 - `batch_size` parameter is optional. By default, is accepted the batch size derived from the model. It is set by the model optimizer tool.
 - When that parameter is set to numerical value, it is changing the model batch size at service start up. 
@@ -13,7 +13,7 @@ For example with the input shape (1, 3, 225, 225), the batch size is set to 1. W
 whose output's first dimension is not representing the batch size like on the input side.
 Changing batch size in this kind of models can be done with network reshaping by setting `shape` parameter appropriately.
 
-## Model reshaping
+# Model reshaping in OpenVINO&trade; Model Server
 - `shape` parameter is optional and it takes precedence over batch_size parameter. When the shape is defined as an argument,
 it ignores the batch_size value.
 

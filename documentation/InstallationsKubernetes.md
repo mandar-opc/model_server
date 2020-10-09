@@ -1,5 +1,5 @@
-
 # Installation of OpenVINO&trade; Model Server with Kubernetes and Helms Chart
+
 A helm chart for installing OpenVINO Model Server in a Kubernetes cluster is provided. By default, the cluster contains a single instance of the server but the _replicas_ configuration parameter can be set to create a cluster of any size, as described below. This guide assumes you already have a functional Kubernetes cluster and helm installed (see below for instructions on installing helm).
 
 This guide describes how to setup a model repository, use helm to launch the inference server and then send inference requests to the running server. 
@@ -61,8 +61,7 @@ $ helm install ovms ovms --set model_name=icnet-camvid-ava-0001,model_path=s3://
     
 ## Deploy the Model Server Image
 
-Deploy Model Server using _helm_. Please include the required model name and model path. You can also adjust other parameters defined in [values.yaml](ovms/values.yaml) (---change link when deployed---)
-```shell script
+Deploy Model Server using _helm_. Please include the required model name and model path. You can also adjust other parameters defined in [values.yaml](../deploy/ovms/values.yaml)
 $ helm install ovms ovms --set model_name=resnet50-binary-0001,model_path=gs://models-repository
 ```
 
@@ -108,7 +107,7 @@ openvino-model-server   LoadBalancer   10.121.14.253   1.2.3.4         8080:3004
 
 The server exposes an gRPC endpoint on 8080 port and REST endpoint on 8081 port.
 
-Follow the instructions [here](https://github.com/openvinotoolkit/model_server/tree/master/example_client#submitting-grpc-requests-based-on-a-dataset-from-a-list-of-jpeg-files)
+Follow the instructions [here](https://github.com/openvinotoolkit/model_server/tree/main/example_client#submitting-grpc-requests-based-on-a-dataset-from-a-list-of-jpeg-files)
 to create an image classification client that can be used to perform inference with models being exposed by the server. For example:
 ```shell script
 $ python jpeg_classification.py --grpc_port 8080 --grpc_address 1.2.3.4 --input_name data --output_name prob

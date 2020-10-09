@@ -1,7 +1,7 @@
-# Model Ensemble Scheduler
+# Model Ensemble Scheduler in OpenVINO&trade; Model Server
 
 ## Introduction
-OpenVINO™ Model Server provides possibility to create pipeline of models for execution in a single client request. Pipeline is a directed acyclic graph with different kinds of nodes which define how to process predict request. By using ensemble scheduler there is no need to return intermediate results of every inference to the client. This allows avoiding the network overhead by minimizing the number of requests sent to model server. Each model output can be mapped to another model input. Since intermediate results are kept in server's RAM these can be reused by subsequent inferences which reduces overall latency.
+OpenVINO&trade; Model Server provides possibility to create pipeline of models for execution in a single client request. Pipeline is a directed acyclic graph with different kinds of nodes which define how to process predict request. By using ensemble scheduler there is no need to return intermediate results of every inference to the client. This allows avoiding the network overhead by minimizing the number of requests sent to model server. Each model output can be mapped to another model input. Since intermediate results are kept in server's RAM these can be reused by subsequent inferences which reduces overall latency.
 
 This guide gives information about following :
 
@@ -29,7 +29,7 @@ There are two special kinds of nodes - Request and Response node. Both of them a
 ### Other node types
 Internal pipeline nodes are created by user. Currently there is only one node type that a user can create:
 * DL model
-    - This node contains underlying OpenVINO™ model and performs inference on selected target device. This can be defined in configuration file. Each model input needs to be mapped to some node's `data_item` - be it input from gRPC/REST request or another `DL model` output. Results of this node's inference may be mapped to another node's input or `response` node meaning it will be exposed in gRPC/REST response. 
+    - This node contains underlying OpenVINO&trade; model and performs inference on selected target device. This can be defined in configuration file. Each model input needs to be mapped to some node's `data_item` - be it input from gRPC/REST request or another `DL model` output. Results of this node's inference may be mapped to another node's input or `response` node meaning it will be exposed in gRPC/REST response. 
 
 ## Example use case<a name="example"></a>
 
@@ -178,7 +178,7 @@ Pipelines need to be defined in configuration file to use them. The same configu
     ]
 }
 ```
-In `model_config_list` section, three models are defined as usual. We can refer to them by name in pipeline definition but we can also request single inference on them separately. The same inference gRPC and REST API is used to request models and pipelines. OpenVINO™ Model Server will first try to search for model with requested name. If not found, it will try to find pipeline.
+In `model_config_list` section, three models are defined as usual. We can refer to them by name in pipeline definition but we can also request single inference on them separately. The same inference gRPC and REST API is used to request models and pipelines. OpenVINO&trade; Model Server will first try to search for model with requested name. If not found, it will try to find pipeline.
 
 - Pipeline configuration options explained
 

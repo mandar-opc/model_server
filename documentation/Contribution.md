@@ -1,4 +1,4 @@
-# Contributing Guidelines
+# OpenVINO&trade; Model Server Contributing Guidelines
 
 ## Overview
 This guide provides steps and coding standards to follow before sending merge requests. Following instructions are covered in this:
