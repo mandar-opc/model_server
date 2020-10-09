@@ -199,8 +199,8 @@ OpenVINO&trade; model server. To enable just a single model, you _do not_ need a
 completed with just one command like below:
 
 ```bash
-docker run --rm -d  -v /models/:/opt/ml:ro -p 9001:9001 -p 8001:8001 ie-serving-py:latest \
-/ie-serving-py/start_server.sh ie_serving model --model_path /opt/ml/model1 --model_name my_model --port 9001 --rest_port 8001
+docker run --rm -d  -v /models/:/opt/ml:ro -p 9001:9001 -p 8001:8001 openvino/model_server:latest \
+--model_path /opt/ml/model1 --model_name my_model --port 9001 --rest_port 8001
 ```
 
 * option `-v` defines how the models folder should be mounted inside the docker container.
@@ -389,37 +389,10 @@ Each config object includes values for the model `name` and the `base_path` attr
 - When the config file is present, the docker container can be started in a similar manner as a single model. Keep in mind that models with cloud storage path require specific environmental variables set. Configuration file above contains both GCS and S3 paths so starting docker container supporting all those models can be done with:
 
 ```bash
-docker run --rm -d  -v $(pwd)/models/:/opt/ml:ro -p 9001:9001 -p 8001:8001 openvino/model_server:latest \
--e GOOGLE_APPLICATION_CREDENTIALS=“${GOOGLE_APPLICATION_CREDENTIALS}”  \
--v ${GOOGLE_APPLICATION_CREDENTIALS}:${GOOGLE_APPLICATION_CREDENTIALS}  \
--e AWS_ACCESS_KEY_ID=“${AWS_ACCESS_KEY_ID}”  \
--e AWS_SECRET_ACCESS_KEY=“${AWS_SECRET_ACCESS_KEY}”  \
--e AWS_REGION=“${AWS_REGION}”  \
--e S3_ENDPOINT=“${S3_ENDPOINT}”  \
+docker run --rm -d  -v /models/:/opt/ml:ro -p 9001:9001 -p 8001:8001  -v <config.json>:/opt/ml/config.json ovms:latest \
 --config_path /opt/ml/config.json --port 9001 --rest_port 8001
 ```
 
-Below is the explanation of the `ie_serving config` parameters
-```bash
-usage: ie_serving config [-h] --config_path CONFIG_PATH [--port PORT]
-                         [--rest_port REST_PORT] [--grpc_workers GRPC_WORKERS]
-                         [--rest_workers REST_WORKERS]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --config_path CONFIG_PATH
-                        absolute path to json configuration file
-  --port PORT           gRPC server port
-  --rest_port REST_PORT
-                        REST server port, the REST server will not be started
-                        if rest_port is blank or set to 0
-  --grpc_workers GRPC_WORKERS
-                        Number of workers in gRPC server
-  --rest_workers REST_WORKERS
-                        Number of workers in REST server - has no effect if
-                        rest_port is not set
-
-```
 
 ## 5. Starting docker container with Neural Compute Stick<a name="ncs"></a>
 
