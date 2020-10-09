@@ -1,4 +1,4 @@
-# Developer Guide 
+# OpenVINO&trade; Model Server Developer Guide 
 
 ## Introduction
 
@@ -29,7 +29,7 @@ In-case of problems, see <a href="#debug">Debugging</a>
    ```bash
    make docker_build DLDT_PACKAGE_URL=<URL>
    ```
-   > **Note**: URL to OpenVINO Toolkit package can be received after registration on [OpenVINO™ Toolkit website](https://software.intel.com/en-us/openvino-toolkit/choose-download)
+   > **Note**: URL to OpenVINO Toolkit package can be received after registration on [OpenVINO&trade; Toolkit website](https://software.intel.com/en-us/openvino-toolkit/choose-download)
 2. Mount the source code in the Docker container:
 	```bash
 	docker run -it -v ${PWD}:/ovms --entrypoint bash -p 9178:9178 openvino/model_server-build:latest 

@@ -1,4 +1,3 @@
-
 # Example of Face Detection with OpenVINO&trade; Model Server<a name="facedetection"></a>
 
 This page guides you through an example script to run face detection inference with OpenVINO&trade; Model Server.

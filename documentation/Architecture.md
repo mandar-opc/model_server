@@ -1,8 +1,8 @@
-# OpenVino&trade; Model Server Architecture
+# OpenVINO&trade; Model Server Architecture
 
-- OpenVINO™ Model Server is a C++ implementation of gRPC and RESTful API interfaces defined by [Tensorflow Serving](https://www.tensorflow.org/tfx/guide/serving).
+- OpenVINO&trade; Model Server is a C++ implementation of gRPC and RESTful API interfaces defined by [Tensorflow Serving](https://www.tensorflow.org/tfx/guide/serving).
 
-- OpenVINO™ Model Server uses [Inference Engine](https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_inference_engine_intro.html) libraries from OpenVINO™ toolkit in the backend, which speeds up the execution on CPU and enables it on AI accelerators like [Neural Compute Stick 2](https://software.intel.com/content/www/us/en/develop/hardware/neural-compute-stick.html), iGPU(Integrated Graphics Processing Unit), [HDDL](https://docs.openvinotoolkit.org/2018_R5/_docs_IE_DG_supported_plugins_HDDL.html) and FPGAs.
+- OpenVINO&trade; Model Server uses [Inference Engine](https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_inference_engine_intro.html) libraries from OpenVINO&trade; toolkit in the backend, which speeds up the execution on CPU and enables it on AI accelerators like [Neural Compute Stick 2](https://software.intel.com/content/www/us/en/develop/hardware/neural-compute-stick.html), iGPU(Integrated Graphics Processing Unit), [HDDL](https://docs.openvinotoolkit.org/2018_R5/_docs_IE_DG_supported_plugins_HDDL.html) and FPGAs.
 
 - API requests in gRPC code skeleton are created based on [TensorFlow Serving Core Framework](https://www.tensorflow.org/tfx/guide/serving) with tunned implementation of requests handling.
 

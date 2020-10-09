@@ -54,10 +54,10 @@ docker run -d -v <folder_with_downloaded_model>:/models/face-detection/1 -p 9000
 --model_path /models/face-detection --model_name face-detection --port 9000 --log_level DEBUG --shape auto
 
 #  Download the example client script to test and run the gRPC 
-curl https://raw.githubusercontent.com/openvinotoolkit/model_server/master/example_client/client_utils.py -o client_utils.py https://raw.githubusercontent.com/openvinotoolkit/model_server/master/example_client/face_detection.py -o face_detection.py  https://raw.githubusercontent.com/openvinotoolkit/model_server/master/example_client/client_requirements.txt -o client_requirements.txt
+curl https://raw.githubusercontent.com/openvinotoolkit/model_server/main/example_client/client_utils.py -o client_utils.py https://raw.githubusercontent.com/openvinotoolkit/model_server/main/example_client/face_detection.py -o face_detection.py  https://raw.githubusercontent.com/openvinotoolkit/model_server/main/example_client/client_requirements.txt -o client_requirements.txt
 
 # Download an image to be analyzed
-curl --create-dirs https://raw.githubusercontent.com/openvinotoolkit/model_server/master/example_client/images/people/people1.jpeg -o images/people1.jpeg
+curl --create-dirs https://raw.githubusercontent.com/openvinotoolkit/model_server/main/example_client/images/people/people1.jpeg -o images/people1.jpeg
 
 # Install python client dependencies
 pip install -r client_requirements.txt
@@ -195,7 +195,7 @@ docker run -d -v <folder_with_downloaded_model>:/models/face-detection/1 -e LOG_
 
 
 - OpenVINO&trade; Model Server docker image can be built using various Dockerfiles:
-- [Dockerfile](https://github.com/openvinotoolkit/model_server/blob/master/Dockerfile) - based on ubuntu with [apt-get package](https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_apt.html) 
+- [Dockerfile](https://github.com/openvinotoolkit/model_server/blob/main/Dockerfile) - based on ubuntu with [apt-get package](https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_apt.html) 
 - [Dockerfile_clearlinux](../Dockerfile_clearlinux) - [clearlinux](https://clearlinux.org/) based image with [DLDT package](https://github.com/clearlinux-pkgs/dldt) included
 - [Dockerfile_binary_openvino](../Dockerfile_binary_openvino) - ubuntu image based on Intel Distribution of OpenVINO&trade; [toolkit package](https://software.intel.com/en-us/openvino-toolkit)
 
@@ -547,7 +547,7 @@ If you have multiple inference devices available (e.g. Myriad VPUs and CPU) you 
 With Multi-Device Plugin enabled, inference requests will be load balanced between multiple devices. 
 For more detailed information read [OpenVino's Multi-Device plugin documentation](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_MULTI.html).
 
-In order to use this feature in OpenVino™ Model Server, following steps are required:
+In order to use this feature in OpenVINO&trade; Model Server, following steps are required:
 
 Set target_device for the model in configuration json file to MULTI:<DEVICE_1>,<DEVICE_2> (e.g. MULTI:MYRIAD,CPU, order of the devices defines their priority, so MYRIAD devices will be used first in this example)
 
@@ -562,12 +562,12 @@ Below is exemplary config.json setting up Multi-Device Plugin for resnet model, 
    }]
 }
 ```
-Starting OpenVINO™ Model Server with config.json (placed in ./models/config.json path) defined as above, and with grpc_workers parameter set to match nireq field in config.json:
+Starting OpenVINO&trade; Model Server with config.json (placed in ./models/config.json path) defined as above, and with grpc_workers parameter set to match nireq field in config.json:
 ```
 docker run -d  --net=host -u root --privileged --rm -v $(pwd)/models/:/opt/ml:ro -v /dev:/dev -p 9001:9001 \
 ovms-py:latest --config_path /opt/ml/config.json --port 9001 
 ```
-Or alternatively, when you are using just a single model, start OpenVINO™ Model Server using this command (config.json is not needed in this case):
+Or alternatively, when you are using just a single model, start OpenVINO&trade; Model Server using this command (config.json is not needed in this case):
 ```
 docker run -d  --net=host -u root --privileged --name ie-serving --rm -v $(pwd)/models/:/opt/ml:ro -v \
  /dev:/dev -p 9001:9001 ovms:latest model --model_path /opt/ml/resnet --model_name resnet --port 9001 --target_device 'MULTI:MYRIAD,CPU'

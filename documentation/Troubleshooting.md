@@ -1,7 +1,7 @@
-# OpenVINO™ Model Server Troubleshooting
+# OpenVINO&trade; Model Server Troubleshooting
 
 ## Introduction
-This document gives information about troubleshooting following issues while using OpenVINO™ Model Server:
+This document gives information about troubleshooting following issues while using OpenVINO&trade; Model Server:
 * <a href="#model-import">Model Import Issues</a>
 * <a href="#client-request">Client Request Issues</a>
 * <a href="#resource-allocation">Resource Allocation</a>
