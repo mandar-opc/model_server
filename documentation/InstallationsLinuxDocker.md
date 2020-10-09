@@ -80,7 +80,7 @@ Install Docker for Ubuntu 18.04 using the following link
 
 - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
-#### Pulling OpenVINO&trade; Model Server image
+#### Pulling OpenVINO&trade; Model Server Image
 
 After Docker installation you can pull the OpenVINO&trade; Model Server image. Open Terminal and run following command:
 
@@ -88,6 +88,7 @@ After Docker installation you can pull the OpenVINO&trade; Model Server image. O
 docker pull openvino/model_server:latest
 
 ```
+You can also build your own image using steps in - <a href="#sourcecode">Build OpenVINO&trade; Model Server Image </a>
 
 #### Running the OpenVINO&trade; Model Server image
 
@@ -170,60 +171,24 @@ Usage:
 
 More details about starting container with one model and examples can be found <a href="#singlemodel">here</a>
 
-## 2. Building the OpenVINO&trade; Model Server Image using Source Code<a name="sourcecode"></a>
+## 2. Building the OpenVINO&trade; Model Server Image<a name="sourcecode"></a>
 
-The OpenVINO&trade; Model Server Image can be built from source. 
-- Download the source code with following command:
-
-```
-git clone https://github.com/openvinotoolkit/model_server.git
-```
-- To build the docker image from source code use following command:
-
-```
-cd model_server
-
-docker build -f Dockerfile --build-arg http_proxy=<http_proxy> --build-arg https_proxy=<https_proxy> -t ovms:latest .
-```
-
-- Test the built image by running it with your saved models:
-```
-docker run -d -v <folder_with_downloaded_model>:/models/face-detection/1 -e LOG_LEVEL=DEBUG -p 9000:9000 ovms:latest \
---model_path /models/face-detection --model_name face-detection --port 9000  --shape auto
-
-```
-
-
-- OpenVINO&trade; Model Server docker image can be built using various Dockerfiles:
-- [Dockerfile](https://github.com/openvinotoolkit/model_server/blob/main/Dockerfile) - based on ubuntu with [apt-get package](https://docs.openvinotoolkit.org/latest/_docs_install_guides_installing_openvino_apt.html) 
-- [Dockerfile_clearlinux](../Dockerfile_clearlinux) - [clearlinux](https://clearlinux.org/) based image with [DLDT package](https://github.com/clearlinux-pkgs/dldt) included
-- [Dockerfile_binary_openvino](../Dockerfile_binary_openvino) - ubuntu image based on Intel Distribution of OpenVINO&trade; [toolkit package](https://software.intel.com/en-us/openvino-toolkit)
-
-- The last option requires URL to OpenVINO Toolkit package that you can get after registration on [OpenVINO&trade; Toolkit website](https://software.intel.com/en-us/openvino-toolkit/choose-download).
-Use this URL as an argument in the `make` command as shown in example below:
+To build your own image, use the following command in the [git repository root folder](https://github.com/openvinotoolkit/model_server), replacing DLDT_PACKAGE_URL=<URL> with the URL to OpenVINO Toolkit package that you can get after registration on OpenVINO™ Toolkit website.
 
 ```bash
-make docker_build_bin dldt_package_url=<url-to-openvino-package-after-registration>/l_openvino_toolkit_p_2020.1.023_online.tgz
+   make docker_build DLDT_PACKAGE_URL=<URL>
 ```
-or
-```bash
-make docker_build_apt_ubuntu
-```
-or
-```bash
-make docker_build_ov_base
-```
-or
-```bash
-make docker_build_clearlinux
-```
+called from the root directory of the repository.
 
-> **Note:** You can use also publicly available docker image from [dockerhub](https://hub.docker.com/r/intelaipg/openvino-model-server/)
-based on clearlinux base image.
+It will generate the images, tagged as:
 
-```bash
-docker pull intelaipg/openvino-model-server
-```
+- openvino/model_server:latest - with CPU, NCS and HDDL support
+- openvino/model_server-gpu:latest - with CPU, NCS, HDDL and iGPU support
+as well as a release package (.tar.gz, with ovms binary and necessary libraries), in a ./dist directory.
+
+*The release package is compatible with linux machines on which glibc version is greater than or equal to the build image version. For debugging, an image with a suffix -build is also generated (i.e. openvino/model_server-build:latest).*
+
+Note: Images include OpenVINO 2021.1 release.
 
 
 
