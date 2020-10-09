@@ -96,9 +96,10 @@ Follow the [Preparation of Model guide](./PreparingModelsRepository.md) before r
 
 Run the OpenVINO&trade; Model Server by running the following command: 
 
-
+```
 docker run -d -v <folder_with_downloaded_model>:/models/face-detection/1 -e LOG_LEVEL=DEBUG -p 9000:9000 -p 9001:9001 openvino/model_server:latest \
---model_path /models/face-detection --model_name face-detection --port 9000 --rest_port 9001 --shape auto
+--model_path path_to_model --model_name model_name --port 9000 --rest_port 9001 --shape auto
+```
 
 - Publish the container's port to your host's **open ports**
 - In above command port 9000 is exposed for gRPC and port 9001 is exposed for REST API calls.
