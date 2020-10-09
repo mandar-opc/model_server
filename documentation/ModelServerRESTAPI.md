@@ -135,6 +135,41 @@ $ curl http://localhost:8001/v1/models/person-detection/versions/1/metadata
 
 Sends requests via TensorFlow Serving RESTful API using images in numpy format. It displays performance statistics and optionally the model accuracy.
 
+* URL
+```
+POST http://${REST_URL}:${REST_PORT}/v1/models/${MODEL_NAME}/versions/${MODEL_VERSION}:predict
+```
+* Request Header
+```
+{
+  // (Optional) Serving signature to use.
+  // If unspecifed default serving signature is used.
+  "signature_name": <string>,
+
+  // Input Tensors in row ("instances") or columnar ("inputs") format.
+  // A request can have either of them but NOT both.
+  "instances": <value>|<(nested)list>|<list-of-objects>
+  "inputs": <value>|<(nested)list>|<object>
+}
+``` 
+> **Note**
+Read [How to specify input tensors in row format](https://www.tensorflow.org/tfx/serving/api_rest#specifying_input_tensors_in_row_format) and [How to specify input tensors in column format](https://www.tensorflow.org/tfx/serving/api_rest#specifying_input_tensors_in_column_format) for more details.
+
+* Response
+
+A request in [row format](https://www.tensorflow.org/tfx/serving/api_rest#specifying_input_tensors_in_row_format) has response formatted as follows:
+```
+{
+  "predictions": <value>|<(nested)list>|<list-of-objects>
+}
+```
+A request in [column format](https://www.tensorflow.org/tfx/serving/api_rest#specifying_input_tensors_in_column_format) has response formatted as follows:
+```
+{
+  "outputs": <value>|<(nested)list>|<object>
+}
+```
+
 * Command
 ```Bash
 python rest_serving_client.py --help

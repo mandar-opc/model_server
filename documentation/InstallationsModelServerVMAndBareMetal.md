@@ -21,12 +21,12 @@ OpenVINO™ model server can be hosted on a bare metal server, virtual machine o
 
 ## Overview
 This guide provides step-by-step instructions to install OpenVino&trade; Model Server on Virtual Machines or Bare Metal Hosts. Links are provided for different compatible hardwares. Following instructions are covered in this:
-1. <a href="#model-server-installation">Model Server Installation</a>
-2. <a href="#model-server-installation">Starting the Serving</a>
-3. <a href="#using-ncs2">Using Neural Compute Sticks</a>
-4. <a href="#using-hddl">Using HDDL accelerators</a>
-5. <a href="#using-igpu">Using iGPU accelerators</a>
-6. <a href="#using-plugin">Using Multi-Device and Heterogeneous Plugin</a>
+- <a href="#model-server-installation">Model Server Installation</a>
+- <a href="#model-server-installation">Starting the Serving</a>
+- <a href="#using-ncs2">Using Neural Compute Sticks</a>
+- <a href="#using-hddl">Using HDDL accelerators</a>
+- <a href="#using-igpu">Using iGPU accelerators</a>
+- <a href="#using-plugin">Using Multi-Device and Heterogeneous Plugin</a>
 
 ## Model Server Installation<a name="model-server-installation"></a>
 1. Clone model server git repository using command :
@@ -44,7 +44,7 @@ This guide provides step-by-step instructions to install OpenVino&trade; Model S
    ````
    The `URL` above represents a link to the OpenVINO Toolkit package that you can get after  registration on [OpenVINO™ Toolkit website](https://software.intel.com/en-us/openvino-toolkit/choose-download). The binary package will be located in the docker image `openvino/model_server-build:latest` in the folder `./dist`.
 
-4. Following command will make a copy of the binary packages in the folder dist from the docker image `openvino/model_server-build:latest` built in previous step in the repository directory:
+4. Following command will also make a copy of the binary packages in the folder dist from the docker image `openvino/model_server-build:latest` built in previous step in the repository directory:
    ```Bash
    make docker_build target
     ```
