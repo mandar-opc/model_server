@@ -1,4 +1,4 @@
-## Introduction to OpenVINO™ Model Server
+# Introduction to OpenVINO™ Model Server
 
 OpenVINO™ Model Server is a scalable, high-performance solution for serving machine learning models optimized for Intel® architectures. The server provides an inference service via gRPC(Remote Procedure Calls) endpoint or REST API  making it easy to deploy new algorithms while keeping the same server architecture and APIs.
 
