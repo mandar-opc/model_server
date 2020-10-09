@@ -122,7 +122,7 @@ If the container is not running , check out the [troubleshooting guide](./Troubl
 
 ### Run the example script
 
-Run the face detection example script - [FaceDetection.py](../facedetection.py). Make changes to the output shape as required by the model you are running. Refer to the API reference Guide to obtain the input and output shape of the model - [gRPC reference guide](./ModelServerGRPCAPI.md) and [REST API reference guide ](./ModelServerRESTAPI.md).
+Run the face detection example script - [FaceDetection.py](../example_client/face_detection.py). Make changes to the output shape as required by the model you are running. Refer to the API reference Guide to obtain the input and output shape of the model - [gRPC reference guide](./ModelServerGRPCAPI.md) and [REST API reference guide ](./ModelServerRESTAPI.md).
 
 Run the example script in terminal :
 
