@@ -26,7 +26,7 @@ This guide provides step-by-step instructions on how to install OpenVINO&trade; 
 - <a href="#configfile">Starting Docker container with a configuration file</a>
 - <a href="#ncs">Starting Docker container with Neural Compute Stick</a>
 - <a href="#hddl">Starting Docker container with HDDL Plugin </a>
-- <a href="#gpu">Starting Docker container with GPU]</a>
+- <a href="#gpu">Starting Docker container with GPU</a>
 - <a href="#multiplugin">Starting Docker Container using Multi-Device Plugin</a>
 - <a href="#heteroplugin">Starting Docker Container using Heterogenous Plugin </a>
 
