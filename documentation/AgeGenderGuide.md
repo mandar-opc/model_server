@@ -28,7 +28,7 @@ docker run --rm -d -v $(pwd)/model:/models/age_gender/1 -p 9000:9000 -p 9001:900
 ####  Download Sample Image
 Download sample image using command :
 ```Bash
-wget https://raw.githubusercontent.com/opencv/open_model_zoo/master/intel_models/age-gender-recognition-retail-0013/description/age-gender-recognition-retail-0001.jpg
+wget https://raw.githubusercontent.com/openvinotoolkit/open_model_zoo/master/models/intel/age-gender-recognition-retail-0013/description/age-gender-recognition-retail-0001.jpg
 ```
 
 #### Format the json request and send the inference request to OVMS REST API endpoint
