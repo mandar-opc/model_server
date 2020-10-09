@@ -70,5 +70,5 @@ docker run --rm -d -v <model_path>:/opt/model -p 9001:9001 openvino/model_server
 --plugin_config '{"CPU_THROUGHPUT_STREAMS": "32"}'
 
 ```
-> **NOTE:** Depending on the target device, there are different sets of plugin configuration and tuning options. Learn more about list of supported plugins [here](https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_supported_plugins_Supported_Devices.html).
+> **NOTE:** Depending on the target device, there are different sets of plugin configuration and tuning options. Learn more about list of supported plugins [here](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_Supported_Devices.html).
 
