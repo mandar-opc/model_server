@@ -13,7 +13,7 @@ This document gives information about troubleshooting following issues while usi
 
 ## Model Import Issues<a name="model-import"></a>
 
-OpenVINO&trade; Model Server loads all defined models versions according to set [version policy](link). A model version is represented by a numerical directory in a model path, containing OpenVINO model files with .bin and .xml extensions.
+OpenVINO&trade; Model Server loads all defined models versions according to set [version policy](./ModelVersionPolicy.md). A model version is represented by a numerical directory in a model path, containing OpenVINO model files with .bin and .xml extensions.
 
 When new model version is detected, the server loads the model files and starts serving new model version. This operation might fail for the following reasons:
 - There is a problem with accessing model files (i. e. due to network connectivity issues to the  remote storage or insufficient permissions)
@@ -44,7 +44,7 @@ models/
 
 - A model version that is detected but not loaded will not be served. It will report status `LOADING` with error message: `Error occurred while loading version`.
 
-- When model files become accessible or fixed, server will try to load them again on the next [version update](link) attempt.
+- When model files become accessible or fixed, server will try to load them again on the next [version update](./ModelVersionPolicy.md) attempt.
 
 - At startup, the server will enable gRPC and REST API endpoint, after all configured models and detected model versions are loaded successfully (in AVAILABLE state).
 

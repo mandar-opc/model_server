@@ -24,7 +24,7 @@ There are two special kinds of nodes - Request and Response node. Both of them a
 * Response node
     - This node defines which outputs will be fetched from final pipeline state and packed into gRPC/REST response. You cannot refer to it in your pipeline since it is pipeline final stage. To define final outputs fill `outputs` field. 
 
-> **NOTE:** Read [below](#define-required-models-and-pipeline) for example pipeline configuration.
+> **NOTE:** Read <a href="#define-models">below</a> for example pipeline configuration.
 
 ### Other node types
 Internal pipeline nodes are created by user. Currently there is only one node type that a user can create:
@@ -62,7 +62,7 @@ Internal pipeline nodes are created by user. Currently there is only one node ty
 ~$ python3 tests/models/argmax_sum.py --input_size 1001 --export_dir models/public/argmax/saved_model
 ```
 
-4. Execute following commands to convert models to IR format and [prepare models repository](models_repository.md):
+4. Execute following commands to convert models to IR format and [prepare models repository](./PreparingModelsRepository.md):
 ```
 ~$ docker run -u $(id -u):$(id -g) -v ~/models:/models:rw openvino/ubuntu18_dev:latest deployment_tools/open_model_zoo/tools/downloader/converter.py --name googlenet-v2-tf --download_dir /models --output_dir /models --precisions FP32
 
@@ -96,7 +96,7 @@ models/public
     └── resnet_v1-50.pb
 ```
 
-### Step 2: Define required models and pipeline
+### Step 2: Define required models and pipeline <a name="define-models"></a>
 Pipelines need to be defined in configuration file to use them. The same configuration file is used to define served models and served pipelines.
 
 1. Execute the following command and copy the content in config.json as given below
