@@ -18,14 +18,14 @@ This document gives information and steps to run and debug tests. It gives infor
 
 ## Set up the Development Environment <a name="set-env"></a>
 
-The [tests](#run-the-tests) in this guide are written in Python. Therefore, to complete the functional tests, Python 3.6 - 3.8 must be installed. 
+The tests in this guide are written in Python. Therefore, to complete the functional tests, Python 3.6 - 3.8 must be installed. 
 
 In-case of problems, see <a href="#debug">Debugging</a>
 
 ## Prepare Environment to Use the Tests <a name="test-prep"></a>
 
 ### Step 1: Compile source code
-1. Build the development `ovms-build` Docker* image(Deep Learning Deployment Toolkit-DLDT)
+1. Build the development `ovms-build` Docker* image
    ```bash
    make docker_build DLDT_PACKAGE_URL=<URL>
    ```
