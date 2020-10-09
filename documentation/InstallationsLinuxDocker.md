@@ -72,15 +72,15 @@ python face_detection.py --batch_size 1 --width 600 --height 400 --input_images_
 ```
 
 
-## Detailed steps to install OpenVINO&trade; Model Server using Docker container
+### Detailed steps to install OpenVINO&trade; Model Server using Docker container
 
-### Install Docker
+#### Install Docker
 
 Install Docker for Ubuntu 18.04 using the following link
 
 - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
-### Pulling OpenVINO&trade; Model Server image
+#### Pulling OpenVINO&trade; Model Server image
 
 After Docker installation you can pull the OpenVINO&trade; Model Server image. Open Terminal and run following command:
 
@@ -89,7 +89,7 @@ docker pull openvino/model_server:latest
 
 ```
 
-### Running the OpenVINO&trade; Model Server image
+#### Running the OpenVINO&trade; Model Server image
 
 Follow the [Preparation of Model guide](./PreparingModelsRepository.md) before running the docker image 
 
@@ -104,7 +104,7 @@ docker run -d -v <folder_with_downloaded_model>:/models/face-detection/1 -e LOG_
 - For preparing and saving models to serve with OpenVINO&trade; Model Server refer [this](./PreparingModelsRepository.md)
 - Add a name to your model for the client gRPC/REST API calls.
 
-### Other Arguments
+#### Other Arguments
 
 Additional arguments that can be used while running the docker image:
 
