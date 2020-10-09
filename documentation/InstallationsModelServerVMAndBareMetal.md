@@ -54,13 +54,9 @@ This guide provides step-by-step instructions to install OpenVino&trade; Model S
 ## Start the Serving<a name="start-the-serving"></a>
 1. The server can be started using the command : 
 ```Bash
-/ovms/bin/ovms
+/ovms/bin/ovms -help
 ```
-2. To get arguments list supported by OVMS, run the command :
-```Bash
-/ovms/bin/ovms --help
-```
-3. The server can be started in interactive mode, as  a background process or a daemon initiated by ```systemctl/initd``` depending on the Linux distribution and specific hosting requirements.
+2. The server can be started in interactive mode, as  a background process or a daemon initiated by ```systemctl/initd``` depending on the Linux distribution and specific hosting requirements.
 
 Refer to [Installing OpenVINO&trade; Model Server for Linux using Docker Container](./InstallationsLinuxDocker.md) to get more details about the docker image built in <a href="#model-server-installation">Model Server Installation</a>
 
