@@ -19,26 +19,26 @@
 
 This guide provides step-by-step instructions on how to install OpenVINO&trade; Model Server for Linux using Docker Container including a Quick Start guide. Links are provided for different compatible hardwares. Following instructions are covered in this:
 
-- [Installing OpenVINO&trade; Model Server with existing Docker Container](./InstallationsLinuxDocker.md#ExistingDocker)
-- [Quick Start Guide for OpenVINO&trade; Model Server](./InstallationsLinuxDocker.md#quickstart)
-- [Building the OpenVINO&trade; Model Server Image using Source Code](./InstallationsLinuxDocker.md#sourcecode)
-- [Starting Docker Container with a Single Model](./InstallationsLinuxDocker.md#singlemodel)
-- [Starting docker container with a configuration file](./InstallationsLinuxDocker.md#configfile)
-- [Starting docker container with Neural Compute Stick](./InstallationsLinuxDocker.md#ncs)
-- [Starting docker container with HDDL Plugin](./InstallationsLinuxDocker.md#hddl)
-- [Starting docker container with GPU](./InstallationsLinuxDocker.md#gpu)
-- [Starting Docker Container using Multi-Device Plugin](./InstallationsLinuxDocker.md#multiplugin)
-- [Starting Docker Container using Heterogenous Plugin](./InstallationsLinuxDocker.md#heteroplugin)
+- <a href="#ExistingDocker">Installing OpenVINO&trade; Model Server with existing Docker Container</a>
+- <a href="#quickstart">Quick Start Guide for OpenVINO&trade; Model Server</a>
+- <a href="#sourcecode">Building the OpenVINO&trade; Model Server Image using Source Code </a>
+- <a href="#singlemodel">Starting Docker Container with a Single Model
+- <a href="#configfile">Starting Docker container with a configuration file</a>
+- <a href="#ncs">Starting Docker container with Neural Compute Stick</a>
+- <a href="#hddl">Starting Docker container with HDDL Plugin </a>
+- <a href="#gpu">Starting Docker container with GPU]</a>
+- <a href="#multiplugin">Starting Docker Container using Multi-Device Plugin</a>
+- <a href="#heteroplugin">Starting Docker Container using Heterogenous Plugin </a>
 
 
 
-## 1. [Installing OpenVINO&trade; Model Server with existing Docker Container](#ExistingDocker)
+## 1. Installing OpenVINO&trade; Model Server with existing Docker Container<a name="ExistingDocker"></a>
 
 A quick start guide to install model server and run it with face detection model is provided below. It includes scripts to query the gRPC endpoints and save results.
 
 For additional endpoints, refer the [REST API](./ModelServerRESTAPI.md)
 
-### [Quick Start Guide](#quickstart)
+### Quick Start Guide <a name="quickstart"></a>
 
 ```bash
  # Pull the latest version of OpenVINO&trade; Model Server from Dockerhub - 
@@ -170,7 +170,7 @@ Usage:
 
 More details about starting container with one model and examples can be found [here](link to singlemodel)
 
-## 2. [Building the OpenVINO&trade; Model Server Image using Source Code](#sourcecode)
+## 2. Building the OpenVINO&trade; Model Server Image using Source Code<a name="sourcecode"></a>
 
 The OpenVINO&trade; Model Server Image can be built from source. 
 - Download the source code with following command:
@@ -227,7 +227,7 @@ docker pull intelaipg/openvino-model-server
 
 
 
-## 3. [Starting Docker Container with a Single Model](#singlemodel)
+## 3. Starting Docker Container with a Single Model<a name="singlemodel"></a>
 
 - When the models are ready and stored in correct folders structure, you are ready to start the Docker container with the 
 OpenVINO&trade; model server. To enable just a single model, you _do not_ need any extra configuration file, so this process can be 
@@ -343,7 +343,7 @@ docker run --rm -d  -p 9001:9001 openvino/model_server:latest \
 
 If you need to expose multiple models, you need to create a model server configuration file, which is explained in the following section.
 
-## 4. [Starting docker container with a configuration file](#configfile)
+## 4. Starting docker container with a configuration file<a name="configfile"></a>
 
 - Model server configuration file defines multiple models, which can be exposed for clients requests.
 It uses `json` format as shown in the example below:
@@ -456,7 +456,7 @@ optional arguments:
 
 ```
 
-## 5. [Starting docker container with Neural Compute Stick (NCS)](#ncs)
+## 5. Starting docker container with Neural Compute Stick<a name="ncs"></a>
 
 Plugin for [Intel® Movidius™ Neural Compute Stick](https://software.intel.com/en-us/neural-compute-stick), starting from 
 version 2019 R1.1 is distributed both in a binary package and [source code](https://github.com/opencv/dldt). 
@@ -503,7 +503,7 @@ ovms:latest --model_path /opt/model --model_name my_model --port 9001 --target_d
 A single stick can handle one model at a time. If there are multiple sticks plugged in, OpenVINO Toolkit 
 chooses to which one the model is loaded. 
 
-## 6. [Starting docker container with HDDL](#hddl)
+## 6. Starting docker container with HDDL<a name="hddl"></a>
 
 Plugin for High-Density Deep Learning (HDDL) accelerators based on [Intel Movidius Myriad VPUs](https://www.intel.ai/intel-movidius-myriad-vpus/#gs.xrw7cj).
 is distributed only in a binary package. You can build the docker image of OpenVINO Model Server, including HDDL plugin
@@ -529,7 +529,7 @@ ovms:latest --model_path /opt/model --model_name my_model --port 9001 --target_d
 
 Check out our recommendations for [throughput optimization on HDDL](performance_tuning.md#hddl-accelerators)
 
-## 7. [Starting docker container with GPU](#gpu)
+## 7. Starting docker container with GPU<a name="gpu"></a>
 
 The GPU plugin uses the Intel® Compute Library for Deep Neural Networks (clDNN) to infer deep neural networks.
 It employs for inference execution Intel® Processor Graphics including Intel® HD Graphics and Intel® Iris® Graphics
@@ -543,7 +543,7 @@ docker run --rm -it --device=/dev/dri -v /opt/model:/opt/model -p 9001:9001 \
 ie-serving-py:latest /ie-serving-py/start_server.sh ie_serving model --model_path /opt/model --model_name my_model --port 9001 --target_device GPU
 ```
 
-## 8. [Starting Docker Container using Multi-Device Plugin](#multiplugin)
+## 8. Starting Docker Container using Multi-Device Plugin<a name="multiplugin"></a>
 
 If you have multiple inference devices available (e.g. Myriad VPUs and CPU) you can increase inference throughput by enabling the Multi-Device Plugin. 
 With Multi-Device Plugin enabled, inference requests will be load balanced between multiple devices. 
@@ -577,7 +577,7 @@ docker run -d  --net=host -u root --privileged --name ie-serving --rm -v $(pwd)/
 After these steps, deployed model will perform inference on both Intel® Movidius™ Neural Compute Stick and CPU.
 Total throughput will be roughly equal to sum of CPU and Intel® Movidius™ Neural Compute Stick throughput.
 
-## 9. [Starting Docker Container Using Heterogeneous Plugin](#heteroplugin)
+## 9. Starting Docker Container Using Heterogeneous Plugin<a name="heteroplugin"></a>
 
 [HETERO plugin](https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_supported_plugins_HETERO.html) makes it possible to distribute a single inference processing and model between several AI accelerators.
 That way different parts of the DL network can split and executed on optimized devices.
