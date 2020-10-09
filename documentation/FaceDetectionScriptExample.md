@@ -1,5 +1,5 @@
 
-## [Example of Face Detection with OpenVINO&trade; Model Server](#facedetection) 
+# Example of Face Detection with OpenVINO&trade; Model Server<a name="facedetection"></a>
 
 This page guides you through an example script to run face detection inference with OpenVINO&trade; Model Server.
 
@@ -74,7 +74,7 @@ python face_detection.py --batch_size 4 --width 600 --height 400 --input_images_
 
 <#iteration>_<#image_in_batch>.jpeg
 
-## [Running Person-Vehicle-Detection with Example Script](#persondetection)
+# Running Person-Vehicle-Detection with Example Script<a name="persondetection"></a>
 
 The Face Detection Example script can be a reference script to run various other Detection models. Run through the following steps to use Person-Vehicle OpenVINO&trade; Model with OpenVINO&trade; Model Server
 
@@ -118,7 +118,7 @@ Check if the container is running with :
 ```bash
 docker ps
 ```
-If the container is not running , check out the troubleshooting guide (./Troubleshooting.md)
+If the container is not running , check out the [troubleshooting guide](./Troubleshooting.md)
 
 
 ### Run the example script
