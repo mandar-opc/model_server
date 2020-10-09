@@ -1,15 +1,15 @@
 
+# Installation of OpenVINO&trade; Model Server with Kubernetes and Helms Chart
 A helm chart for installing OpenVINO Model Server in a Kubernetes cluster is provided. By default, the cluster contains a single instance of the server but the _replicas_ configuration parameter can be set to create a cluster of any size, as described below. This guide assumes you already have a functional Kubernetes cluster and helm installed (see below for instructions on installing helm).
 
 This guide describes how to setup a model repository, use helm to launch the inference server and then send inference requests to the running server. 
 
 ## Installation of Helm
 
-Please refer to: https://helm.sh/docs/intro/install for Helm installation.
-
+Refer this [link](https://helm.sh/docs/intro/install) for Helms Installation
 ## Setting up the Model Repository
 
-If you already have a model repository you may use that with this helm chart. If you don't, you can use any model from the (OpenVino Model Zoo) [https://download.01.org/opencv/2021/openvinotoolkit/2021.1/open_model_zoo/models_bin/].
+If you already have a model repository you may use that with this helm chart. If you don't, you can use any model from the [OpenVino Model Zoo](https://download.01.org/opencv/2021/openvinotoolkit/2021.1/open_model_zoo/models_bin/).
  
 Model Server requires a repository of models to execute inference requests. For example, you can 
 use a Google Cloud Storage (GCS) bucket:
@@ -33,8 +33,7 @@ are needed and you can proceed to _Deploy the Model Server_ section.
 Bucket permissions can be set with the _GOOGLE_APPLICATION_CREDENTIALS_ environment variable. Please follow the steps below:
 
 * Generate Google service account JSON file with permissions: _Storage Legacy Bucket Reader_, _Storage Legacy Object Reader_, _Storage Object Viewer_. Name a file for example: _gcp-creds.json_ 
-(you can follow these instructions to create a Service Account and download JSON: 
-https://cloud.google.com/docs/authentication/getting-started#creating_a_service_account)
+(you can follow these instructions to create a Service Account and download JSON [here](https://cloud.google.com/docs/authentication/getting-started#creating_a_service_account) )
 * Create a Kubernetes secret from this JSON file:
 
 ``` bash 
@@ -49,7 +48,7 @@ $ helm install ovms ovms --set model_name=resnet50-binary-0001,model_path=gs://m
 
 ### Amazon Web Services - Amazon S3
 
-For S3 you must provide an AWS Access Key ID, the content of that key (AWS Secret Access Key) and the AWS region when deploying: `aws_access_key_id`, `aws_secret_access_key` and `aws_region` (see below)
+For S3 you must provide an AWS Access Key ID, the content of that key (AWS Secret Access Key) and the AWS region when deploying: `aws_access_key_id`, `aws_secret_access_key` and `aws_region`
 ```shell script
 $ helm install ovms ovms --set model_name=icnet-camvid-ava-0001,model_path=s3://models-repository,aws_access_key_id=<...>,aws_secret_access_key=<...>,aws_region=eu-central-1
 ```
@@ -81,7 +80,7 @@ $ helm install ovms ovms --set model_name=resnet50-binary-0001,model_path=gs://m
 ```
 ## Deploy Model Server with a Configuration File
 
-To serve multiple models you can run Model Server with a configuration file as described here: https://github.com/openvinotoolkit/model_server/blob/master/docs/docker_container.md#starting-docker-container-with-a-configuration-file
+To serve multiple models you can run Model Server with a configuration file as described [here](./InstallationsLinuxDocker.md#configfile)
 
 ### To deploy with config file:
 - Create a configuration file named config.json and fill it with proper information
@@ -109,7 +108,7 @@ openvino-model-server   LoadBalancer   10.121.14.253   1.2.3.4         8080:3004
 
 The server exposes an gRPC endpoint on 8080 port and REST endpoint on 8081 port.
 
-Follow the instructions here: https://github.com/openvinotoolkit/model_server/tree/master/example_client#submitting-grpc-requests-based-on-a-dataset-from-a-list-of-jpeg-files 
+Follow the instructions [here](https://github.com/openvinotoolkit/model_server/tree/master/example_client#submitting-grpc-requests-based-on-a-dataset-from-a-list-of-jpeg-files)
 to create an image classification client that can be used to perform inference with models being exposed by the server. For example:
 ```shell script
 $ python jpeg_classification.py --grpc_port 8080 --grpc_address 1.2.3.4 --input_name data --output_name prob
